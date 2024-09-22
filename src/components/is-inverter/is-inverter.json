@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_is_inverter_is_inverters",
+  "info": {
+    "displayName": "isInverter",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "isInverter": {
+      "type": "boolean"
+    }
+  }
+}
