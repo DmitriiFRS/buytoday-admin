@@ -4,7 +4,7 @@
   "info": {
     "singularName": "product",
     "pluralName": "products",
-    "displayName": "Продукт",
+    "displayName": "Продукт (Климат)",
     "description": ""
   },
   "options": {
@@ -49,15 +49,6 @@
           "localized": false
         }
       }
-    },
-    "brand": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "string",
-      "required": true
     },
     "mainDescription": {
       "pluginOptions": {
@@ -114,6 +105,18 @@
         }
       },
       "component": "is-inverter.is-inverter"
+    },
+    "compressorTypeConds": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::compressor-type-cond.compressor-type-cond",
+      "inversedBy": "products"
+    },
+    "productType": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::product-type.product-type",
+      "inversedBy": "productsClimat"
     }
   }
 }

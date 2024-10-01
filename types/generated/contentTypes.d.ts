@@ -788,6 +788,165 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiBrandBrand extends Schema.CollectionType {
+  collectionName: 'brands';
+  info: {
+    singularName: 'brand';
+    pluralName: 'brands';
+    displayName: '\u0411\u0440\u0435\u043D\u0434\u044B';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required & Attribute.Unique;
+    slug: Attribute.String & Attribute.Required & Attribute.Unique;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    productType: Attribute.Relation<
+      'api::brand.brand',
+      'manyToOne',
+      'api::product-type.product-type'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::brand.brand',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::brand.brand',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiCompressorTypeCondCompressorTypeCond
+  extends Schema.CollectionType {
+  collectionName: 'compressor_type_conds';
+  info: {
+    singularName: 'compressor-type-cond';
+    pluralName: 'compressor-type-conds';
+    displayName: '\u0422\u0438\u043F \u043A\u043E\u043C\u043F\u0440\u0435\u0441\u0441\u043E\u0440\u0430 (\u041A\u043E\u043D\u0434\u0435\u0440\u044B)';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    slug: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    products: Attribute.Relation<
+      'api::compressor-type-cond.compressor-type-cond',
+      'oneToMany',
+      'api::product.product'
+    >;
+    productType: Attribute.Relation<
+      'api::compressor-type-cond.compressor-type-cond',
+      'manyToOne',
+      'api::product-type.product-type'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::compressor-type-cond.compressor-type-cond',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::compressor-type-cond.compressor-type-cond',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::compressor-type-cond.compressor-type-cond',
+      'oneToMany',
+      'api::compressor-type-cond.compressor-type-cond'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiFridgeTypeFridgeType extends Schema.CollectionType {
+  collectionName: 'fridge_types';
+  info: {
+    singularName: 'fridge-type';
+    pluralName: 'fridge-types';
+    displayName: '\u0422\u0438\u043F \u0445\u043E\u043B\u043E\u0434\u0438\u043B\u044C\u043D\u0438\u043A\u0430';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    slug: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::fridge-type.fridge-type',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::fridge-type.fridge-type',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::fridge-type.fridge-type',
+      'oneToMany',
+      'api::fridge-type.fridge-type'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiModelModel extends Schema.CollectionType {
   collectionName: 'models';
   info: {
@@ -971,6 +1130,11 @@ export interface ApiModelModel extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    wi_fi: Attribute.Relation<
+      'api::model.model',
+      'manyToOne',
+      'api::wi-fi.wi-fi'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1000,7 +1164,7 @@ export interface ApiProductProduct extends Schema.CollectionType {
   info: {
     singularName: 'product';
     pluralName: 'products';
-    displayName: '\u041F\u0440\u043E\u0434\u0443\u043A\u0442';
+    displayName: '\u041F\u0440\u043E\u0434\u0443\u043A\u0442 (\u041A\u043B\u0438\u043C\u0430\u0442)';
     description: '';
   };
   options: {
@@ -1027,13 +1191,6 @@ export interface ApiProductProduct extends Schema.CollectionType {
         };
       }>;
     previewImage: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    brand: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -1075,6 +1232,16 @@ export interface ApiProductProduct extends Schema.CollectionType {
           localized: false;
         };
       }>;
+    compressorTypeConds: Attribute.Relation<
+      'api::product.product',
+      'manyToOne',
+      'api::compressor-type-cond.compressor-type-cond'
+    >;
+    productType: Attribute.Relation<
+      'api::product.product',
+      'manyToOne',
+      'api::product-type.product-type'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1099,6 +1266,131 @@ export interface ApiProductProduct extends Schema.CollectionType {
   };
 }
 
+export interface ApiProductTypeProductType extends Schema.CollectionType {
+  collectionName: 'product_types';
+  info: {
+    singularName: 'product-type';
+    pluralName: 'product-types';
+    displayName: '\u0422\u0438\u043F \u043F\u0440\u043E\u0434\u0443\u043A\u0442\u0430';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    slug: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    productsClimat: Attribute.Relation<
+      'api::product-type.product-type',
+      'oneToMany',
+      'api::product.product'
+    >;
+    brands: Attribute.Relation<
+      'api::product-type.product-type',
+      'oneToMany',
+      'api::brand.brand'
+    >;
+    compressor_types: Attribute.Relation<
+      'api::product-type.product-type',
+      'oneToMany',
+      'api::compressor-type-cond.compressor-type-cond'
+    >;
+    filterBtu: Attribute.Component<
+      'filter-btu-power.filtr-moshhnost-btu',
+      true
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    wifis: Attribute.Relation<
+      'api::product-type.product-type',
+      'oneToMany',
+      'api::wi-fi.wi-fi'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::product-type.product-type',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::product-type.product-type',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::product-type.product-type',
+      'oneToMany',
+      'api::product-type.product-type'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiWiFiWiFi extends Schema.CollectionType {
+  collectionName: 'wi_fis';
+  info: {
+    singularName: 'wi-fi';
+    pluralName: 'wi-fis';
+    displayName: 'Wi-Fi';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    isWifi: Attribute.Boolean & Attribute.Required & Attribute.DefaultTo<false>;
+    models: Attribute.Relation<
+      'api::wi-fi.wi-fi',
+      'oneToMany',
+      'api::model.model'
+    >;
+    productType: Attribute.Relation<
+      'api::wi-fi.wi-fi',
+      'manyToOne',
+      'api::product-type.product-type'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::wi-fi.wi-fi',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::wi-fi.wi-fi',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1117,8 +1409,13 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::brand.brand': ApiBrandBrand;
+      'api::compressor-type-cond.compressor-type-cond': ApiCompressorTypeCondCompressorTypeCond;
+      'api::fridge-type.fridge-type': ApiFridgeTypeFridgeType;
       'api::model.model': ApiModelModel;
       'api::product.product': ApiProductProduct;
+      'api::product-type.product-type': ApiProductTypeProductType;
+      'api::wi-fi.wi-fi': ApiWiFiWiFi;
     }
   }
 }

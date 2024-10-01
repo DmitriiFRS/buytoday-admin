@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "wi_fis",
+  "info": {
+    "singularName": "wi-fi",
+    "pluralName": "wi-fis",
+    "displayName": "Wi-Fi",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "isWifi": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "models": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::model.model",
+      "mappedBy": "wi_fi"
+    },
+    "productType": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::product-type.product-type",
+      "inversedBy": "wifis"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "collectionName": "comps_filt_btu_pwr_filt_moshnost_btu",
+  "info": {
+    "displayName": "Фильтр мощность btu",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "value": {
+      "type": "biginteger",
+      "required": true
+    }
+  }
+}

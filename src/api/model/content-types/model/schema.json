@@ -241,6 +241,12 @@
         }
       },
       "type": "string"
+    },
+    "wi_fi": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::wi-fi.wi-fi",
+      "inversedBy": "models"
     }
   }
 }
