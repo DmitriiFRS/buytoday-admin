@@ -23,9 +23,9 @@
       "target": "api::model.model",
       "mappedBy": "wi_fi"
     },
-    "productType": {
+    "productTypes": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::product-type.product-type",
       "inversedBy": "wifis"
     }

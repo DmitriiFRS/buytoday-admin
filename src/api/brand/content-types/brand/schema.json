@@ -33,9 +33,9 @@
         "audios"
       ]
     },
-    "productType": {
+    "productTypes": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::product-type.product-type",
       "inversedBy": "brands"
     }

@@ -803,9 +803,9 @@ export interface ApiBrandBrand extends Schema.CollectionType {
     title: Attribute.String & Attribute.Required & Attribute.Unique;
     slug: Attribute.String & Attribute.Required & Attribute.Unique;
     image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    productType: Attribute.Relation<
+    productTypes: Attribute.Relation<
       'api::brand.brand',
-      'manyToOne',
+      'manyToMany',
       'api::product-type.product-type'
     >;
     createdAt: Attribute.DateTime;
@@ -863,9 +863,9 @@ export interface ApiCompressorTypeCondCompressorTypeCond
       'oneToMany',
       'api::product.product'
     >;
-    productType: Attribute.Relation<
+    productTypes: Attribute.Relation<
       'api::compressor-type-cond.compressor-type-cond',
-      'manyToOne',
+      'manyToMany',
       'api::product-type.product-type'
     >;
     createdAt: Attribute.DateTime;
@@ -889,6 +889,37 @@ export interface ApiCompressorTypeCondCompressorTypeCond
       'api::compressor-type-cond.compressor-type-cond'
     >;
     locale: Attribute.String;
+  };
+}
+
+export interface ApiDollarValueDollarValue extends Schema.SingleType {
+  collectionName: 'dollar_values';
+  info: {
+    singularName: 'dollar-value';
+    pluralName: 'dollar-values';
+    displayName: '\u041A\u0443\u0440\u0441 \u0434\u043E\u043B\u043B\u0430\u0440\u0430';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    value: Attribute.Integer;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::dollar-value.dollar-value',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::dollar-value.dollar-value',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
   };
 }
 
@@ -1304,12 +1335,12 @@ export interface ApiProductTypeProductType extends Schema.CollectionType {
     >;
     brands: Attribute.Relation<
       'api::product-type.product-type',
-      'oneToMany',
+      'manyToMany',
       'api::brand.brand'
     >;
     compressor_types: Attribute.Relation<
       'api::product-type.product-type',
-      'oneToMany',
+      'manyToMany',
       'api::compressor-type-cond.compressor-type-cond'
     >;
     filterBtu: Attribute.Component<
@@ -1323,7 +1354,7 @@ export interface ApiProductTypeProductType extends Schema.CollectionType {
       }>;
     wifis: Attribute.Relation<
       'api::product-type.product-type',
-      'oneToMany',
+      'manyToMany',
       'api::wi-fi.wi-fi'
     >;
     createdAt: Attribute.DateTime;
@@ -1368,9 +1399,9 @@ export interface ApiWiFiWiFi extends Schema.CollectionType {
       'oneToMany',
       'api::model.model'
     >;
-    productType: Attribute.Relation<
+    productTypes: Attribute.Relation<
       'api::wi-fi.wi-fi',
-      'manyToOne',
+      'manyToMany',
       'api::product-type.product-type'
     >;
     createdAt: Attribute.DateTime;
@@ -1411,6 +1442,7 @@ declare module '@strapi/types' {
       'plugin::i18n.locale': PluginI18NLocale;
       'api::brand.brand': ApiBrandBrand;
       'api::compressor-type-cond.compressor-type-cond': ApiCompressorTypeCondCompressorTypeCond;
+      'api::dollar-value.dollar-value': ApiDollarValueDollarValue;
       'api::fridge-type.fridge-type': ApiFridgeTypeFridgeType;
       'api::model.model': ApiModelModel;
       'api::product.product': ApiProductProduct;

@@ -40,9 +40,9 @@
       "target": "api::product.product",
       "mappedBy": "compressorTypeConds"
     },
-    "productType": {
+    "productTypes": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::product-type.product-type",
       "inversedBy": "compressor_types"
     }

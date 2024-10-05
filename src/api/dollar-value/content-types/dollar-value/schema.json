@@ -1,0 +1,19 @@
+{
+  "kind": "singleType",
+  "collectionName": "dollar_values",
+  "info": {
+    "singularName": "dollar-value",
+    "pluralName": "dollar-values",
+    "displayName": "Курс доллара",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "value": {
+      "type": "integer"
+    }
+  }
+}

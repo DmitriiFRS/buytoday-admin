@@ -43,15 +43,15 @@
     },
     "brands": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::brand.brand",
-      "mappedBy": "productType"
+      "mappedBy": "productTypes"
     },
     "compressor_types": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::compressor-type-cond.compressor-type-cond",
-      "mappedBy": "productType"
+      "mappedBy": "productTypes"
     },
     "filterBtu": {
       "type": "component",
@@ -65,9 +65,9 @@
     },
     "wifis": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::wi-fi.wi-fi",
-      "mappedBy": "productType"
+      "mappedBy": "productTypes"
     }
   }
 }

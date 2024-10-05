@@ -1,5 +1,16 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface IsInverterIsInverter extends Schema.Component {
+  collectionName: 'components_is_inverter_is_inverters';
+  info: {
+    displayName: 'isInverter';
+    description: '';
+  };
+  attributes: {
+    isInverter: Attribute.Boolean;
+  };
+}
+
 export interface FilterBtuPowerFiltrMoshhnostBtu extends Schema.Component {
   collectionName: 'comps_filt_btu_pwr_filt_moshnost_btu';
   info: {
@@ -12,22 +23,11 @@ export interface FilterBtuPowerFiltrMoshhnostBtu extends Schema.Component {
   };
 }
 
-export interface IsInverterIsInverter extends Schema.Component {
-  collectionName: 'components_is_inverter_is_inverters';
-  info: {
-    displayName: 'isInverter';
-    description: '';
-  };
-  attributes: {
-    isInverter: Attribute.Boolean;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
-      'filter-btu-power.filtr-moshhnost-btu': FilterBtuPowerFiltrMoshhnostBtu;
       'is-inverter.is-inverter': IsInverterIsInverter;
+      'filter-btu-power.filtr-moshhnost-btu': FilterBtuPowerFiltrMoshhnostBtu;
     }
   }
 }
