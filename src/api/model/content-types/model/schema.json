@@ -59,7 +59,8 @@
         }
       },
       "type": "boolean",
-      "required": false
+      "required": false,
+      "default": false
     },
     "coolingBtu": {
       "pluginOptions": {
@@ -246,6 +247,18 @@
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::wi-fi.wi-fi",
+      "inversedBy": "models"
+    },
+    "productType": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::product-type.product-type",
+      "inversedBy": "models"
+    },
+    "btu_filters": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::btu-filtry.btu-filtry",
       "inversedBy": "models"
     }
   }

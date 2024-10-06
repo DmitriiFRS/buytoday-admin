@@ -12,11 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "isWifi": {
-      "type": "boolean",
-      "default": false,
-      "required": true
-    },
     "models": {
       "type": "relation",
       "relation": "oneToMany",
@@ -28,6 +23,14 @@
       "relation": "manyToMany",
       "target": "api::product-type.product-type",
       "inversedBy": "wifis"
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "string",
+      "required": true
     }
   }
 }

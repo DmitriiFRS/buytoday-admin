@@ -53,21 +53,23 @@
       "target": "api::compressor-type-cond.compressor-type-cond",
       "mappedBy": "productTypes"
     },
-    "filterBtu": {
-      "type": "component",
-      "repeatable": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "component": "filter-btu-power.filtr-moshhnost-btu"
-    },
     "wifis": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::wi-fi.wi-fi",
       "mappedBy": "productTypes"
+    },
+    "models": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::model.model",
+      "mappedBy": "productType"
+    },
+    "btuFilters": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::btu-filtry.btu-filtry",
+      "mappedBy": "product_types"
     }
   }
 }

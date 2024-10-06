@@ -808,6 +808,11 @@ export interface ApiBrandBrand extends Schema.CollectionType {
       'manyToMany',
       'api::product-type.product-type'
     >;
+    productsClimate: Attribute.Relation<
+      'api::brand.brand',
+      'oneToMany',
+      'api::product.product'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -823,6 +828,72 @@ export interface ApiBrandBrand extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
+  };
+}
+
+export interface ApiBtuFiltryBtuFiltry extends Schema.CollectionType {
+  collectionName: 'btu_filtries';
+  info: {
+    singularName: 'btu-filtry';
+    pluralName: 'btu-filtries';
+    displayName: 'BTU \u0424\u0438\u043B\u044C\u0442\u0440\u044B';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    slug: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    product_types: Attribute.Relation<
+      'api::btu-filtry.btu-filtry',
+      'manyToMany',
+      'api::product-type.product-type'
+    >;
+    models: Attribute.Relation<
+      'api::btu-filtry.btu-filtry',
+      'oneToMany',
+      'api::model.model'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::btu-filtry.btu-filtry',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::btu-filtry.btu-filtry',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::btu-filtry.btu-filtry',
+      'oneToMany',
+      'api::btu-filtry.btu-filtry'
+    >;
+    locale: Attribute.String;
   };
 }
 
@@ -1028,7 +1099,8 @@ export interface ApiModelModel extends Schema.CollectionType {
         i18n: {
           localized: false;
         };
-      }>;
+      }> &
+      Attribute.DefaultTo<false>;
     coolingBtu: Attribute.Integer &
       Attribute.Required &
       Attribute.SetPluginOptions<{
@@ -1166,6 +1238,16 @@ export interface ApiModelModel extends Schema.CollectionType {
       'manyToOne',
       'api::wi-fi.wi-fi'
     >;
+    productType: Attribute.Relation<
+      'api::model.model',
+      'manyToOne',
+      'api::product-type.product-type'
+    >;
+    btu_filters: Attribute.Relation<
+      'api::model.model',
+      'manyToOne',
+      'api::btu-filtry.btu-filtry'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1273,6 +1355,11 @@ export interface ApiProductProduct extends Schema.CollectionType {
       'manyToOne',
       'api::product-type.product-type'
     >;
+    brands: Attribute.Relation<
+      'api::product.product',
+      'manyToOne',
+      'api::brand.brand'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1343,19 +1430,20 @@ export interface ApiProductTypeProductType extends Schema.CollectionType {
       'manyToMany',
       'api::compressor-type-cond.compressor-type-cond'
     >;
-    filterBtu: Attribute.Component<
-      'filter-btu-power.filtr-moshhnost-btu',
-      true
-    > &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
     wifis: Attribute.Relation<
       'api::product-type.product-type',
       'manyToMany',
       'api::wi-fi.wi-fi'
+    >;
+    models: Attribute.Relation<
+      'api::product-type.product-type',
+      'oneToMany',
+      'api::model.model'
+    >;
+    btuFilters: Attribute.Relation<
+      'api::product-type.product-type',
+      'manyToMany',
+      'api::btu-filtry.btu-filtry'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1393,7 +1481,6 @@ export interface ApiWiFiWiFi extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    isWifi: Attribute.Boolean & Attribute.Required & Attribute.DefaultTo<false>;
     models: Attribute.Relation<
       'api::wi-fi.wi-fi',
       'oneToMany',
@@ -1404,6 +1491,8 @@ export interface ApiWiFiWiFi extends Schema.CollectionType {
       'manyToMany',
       'api::product-type.product-type'
     >;
+    title: Attribute.String & Attribute.Required;
+    slug: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1441,6 +1530,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
       'api::brand.brand': ApiBrandBrand;
+      'api::btu-filtry.btu-filtry': ApiBtuFiltryBtuFiltry;
       'api::compressor-type-cond.compressor-type-cond': ApiCompressorTypeCondCompressorTypeCond;
       'api::dollar-value.dollar-value': ApiDollarValueDollarValue;
       'api::fridge-type.fridge-type': ApiFridgeTypeFridgeType;

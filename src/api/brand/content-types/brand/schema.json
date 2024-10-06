@@ -38,6 +38,12 @@
       "relation": "manyToMany",
       "target": "api::product-type.product-type",
       "inversedBy": "brands"
+    },
+    "productsClimate": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product",
+      "mappedBy": "brands"
     }
   }
 }

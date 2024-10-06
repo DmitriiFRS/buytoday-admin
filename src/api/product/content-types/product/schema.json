@@ -117,6 +117,12 @@
       "relation": "manyToOne",
       "target": "api::product-type.product-type",
       "inversedBy": "productsClimat"
+    },
+    "brands": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::brand.brand",
+      "inversedBy": "productsClimate"
     }
   }
 }
