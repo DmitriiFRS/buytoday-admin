@@ -96,16 +96,6 @@
       },
       "type": "richtext"
     },
-    "isInverter": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "component": "is-inverter.is-inverter"
-    },
     "compressorTypeConds": {
       "type": "relation",
       "relation": "manyToOne",
@@ -123,6 +113,14 @@
       "relation": "manyToOne",
       "target": "api::brand.brand",
       "inversedBy": "productsClimate"
+    },
+    "temperatureRange": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
     }
   }
 }
