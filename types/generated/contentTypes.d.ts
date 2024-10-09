@@ -939,6 +939,11 @@ export interface ApiCompressorTypeCondCompressorTypeCond
       'manyToMany',
       'api::product-type.product-type'
     >;
+    models: Attribute.Relation<
+      'api::compressor-type-cond.compressor-type-cond',
+      'oneToMany',
+      'api::model.model'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -991,61 +996,6 @@ export interface ApiDollarValueDollarValue extends Schema.SingleType {
       'admin::user'
     > &
       Attribute.Private;
-  };
-}
-
-export interface ApiFridgeTypeFridgeType extends Schema.CollectionType {
-  collectionName: 'fridge_types';
-  info: {
-    singularName: 'fridge-type';
-    pluralName: 'fridge-types';
-    displayName: '\u0422\u0438\u043F \u0445\u043E\u043B\u043E\u0434\u0438\u043B\u044C\u043D\u0438\u043A\u0430';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    title: Attribute.String &
-      Attribute.Required &
-      Attribute.Unique &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    slug: Attribute.String &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::fridge-type.fridge-type',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::fridge-type.fridge-type',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    localizations: Attribute.Relation<
-      'api::fridge-type.fridge-type',
-      'oneToMany',
-      'api::fridge-type.fridge-type'
-    >;
-    locale: Attribute.String;
   };
 }
 
@@ -1248,6 +1198,26 @@ export interface ApiModelModel extends Schema.CollectionType {
       'manyToOne',
       'api::btu-filtry.btu-filtry'
     >;
+    compressorType: Attribute.Relation<
+      'api::model.model',
+      'manyToOne',
+      'api::compressor-type-cond.compressor-type-cond'
+    >;
+    popularParam: Attribute.Component<
+      'popular-params.populyarnye-parametry',
+      true
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMax<
+        {
+          max: 3;
+        },
+        number
+      >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1533,7 +1503,6 @@ declare module '@strapi/types' {
       'api::btu-filtry.btu-filtry': ApiBtuFiltryBtuFiltry;
       'api::compressor-type-cond.compressor-type-cond': ApiCompressorTypeCondCompressorTypeCond;
       'api::dollar-value.dollar-value': ApiDollarValueDollarValue;
-      'api::fridge-type.fridge-type': ApiFridgeTypeFridgeType;
       'api::model.model': ApiModelModel;
       'api::product.product': ApiProductProduct;
       'api::product-type.product-type': ApiProductTypeProductType;

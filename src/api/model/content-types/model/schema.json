@@ -260,6 +260,24 @@
       "relation": "manyToOne",
       "target": "api::btu-filtry.btu-filtry",
       "inversedBy": "models"
+    },
+    "compressorType": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::compressor-type-cond.compressor-type-cond",
+      "inversedBy": "models"
+    },
+    "popularParam": {
+      "displayName": "Популярные параметры",
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "popular-params.populyarnye-parametry",
+      "max": 3
     }
   }
 }

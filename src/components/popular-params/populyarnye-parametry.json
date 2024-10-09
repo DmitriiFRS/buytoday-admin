@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_popular_params_populyarnye_parametry",
+  "info": {
+    "displayName": "Популярные параметры"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "value": {
+      "type": "string"
+    }
+  }
+}
