@@ -1004,7 +1004,7 @@ export interface ApiModelModel extends Schema.CollectionType {
   info: {
     singularName: 'model';
     pluralName: 'models';
-    displayName: '\u041C\u043E\u0434\u0435\u043B\u044C';
+    displayName: '\u041C\u043E\u0434\u0435\u043B\u044C (\u041F\u0440\u043E\u0434\u0443\u043A\u0442)';
     description: '';
   };
   options: {
@@ -1245,7 +1245,7 @@ export interface ApiProductProduct extends Schema.CollectionType {
   info: {
     singularName: 'product';
     pluralName: 'products';
-    displayName: '\u041F\u0440\u043E\u0434\u0443\u043A\u0442 (\u041A\u043B\u0438\u043C\u0430\u0442)';
+    displayName: '\u041F\u0440\u043E\u0434\u0443\u043A\u0442 (\u041A\u043E\u043D\u0434\u0435\u0440\u044B)';
     description: '';
   };
   options: {
