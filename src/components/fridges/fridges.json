@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_fridges_fridges",
+  "info": {
+    "displayName": "fridges",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "valueL": {
+      "type": "string"
+    },
+    "freezerCapacity": {
+      "type": "string"
+    },
+    "coldRoomValue": {
+      "type": "string"
+    },
+    "dbValue": {
+      "type": "string"
+    }
+  }
+}

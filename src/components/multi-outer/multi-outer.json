@@ -1,0 +1,40 @@
+{
+  "collectionName": "components_multi_outer_multi_outers",
+  "info": {
+    "displayName": "multiOuter",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "powerSupply": {
+      "type": "string"
+    },
+    "coolingBtu": {
+      "type": "string"
+    },
+    "coolingKw": {
+      "type": "string"
+    },
+    "coolingAmperage": {
+      "type": "string"
+    },
+    "err": {
+      "type": "string"
+    },
+    "heatingBtu": {
+      "type": "string"
+    },
+    "heatingKw": {
+      "type": "string"
+    },
+    "heatingAmperage": {
+      "type": "string"
+    },
+    "cop": {
+      "type": "string"
+    },
+    "airFlowRate": {
+      "type": "string"
+    }
+  }
+}

@@ -1037,13 +1037,6 @@ export interface ApiModelModel extends Schema.CollectionType {
           localized: false;
         };
       }>;
-    filterBtu: Attribute.Integer &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
     isPromoted: Attribute.Boolean &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -1052,7 +1045,6 @@ export interface ApiModelModel extends Schema.CollectionType {
       }> &
       Attribute.DefaultTo<false>;
     coolingBtu: Attribute.Integer &
-      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
@@ -1218,6 +1210,12 @@ export interface ApiModelModel extends Schema.CollectionType {
         },
         number
       >;
+    paramsWrapper: Attribute.Component<'params-wrapper.params-wrapper'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

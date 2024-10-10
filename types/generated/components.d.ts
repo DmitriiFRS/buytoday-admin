@@ -11,10 +11,78 @@ export interface PopularParamsPopulyarnyeParametry extends Schema.Component {
   };
 }
 
+export interface WashWash extends Schema.Component {
+  collectionName: 'components_wash_washes';
+  info: {
+    displayName: 'wash';
+    description: '';
+  };
+  attributes: {
+    drying: Attribute.String;
+    programNums: Attribute.String;
+    rpm: Attribute.String;
+  };
+}
+
+export interface ParamsWrapperParamsWrapper extends Schema.Component {
+  collectionName: 'components_params_wrapper_params_wrappers';
+  info: {
+    displayName: 'paramsWrapper';
+    description: '';
+  };
+  attributes: {
+    multiOuter: Attribute.Component<'multi-outer.multi-outer'>;
+    fridges: Attribute.Component<'fridges.fridges'>;
+    wash: Attribute.Component<'wash.wash'>;
+    previewImage: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    images: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    noise: Attribute.Decimal;
+    sizes: Attribute.String;
+  };
+}
+
+export interface MultiOuterMultiOuter extends Schema.Component {
+  collectionName: 'components_multi_outer_multi_outers';
+  info: {
+    displayName: 'multiOuter';
+    description: '';
+  };
+  attributes: {
+    powerSupply: Attribute.String;
+    coolingBtu: Attribute.String;
+    coolingKw: Attribute.String;
+    coolingAmperage: Attribute.String;
+    err: Attribute.String;
+    heatingBtu: Attribute.String;
+    heatingKw: Attribute.String;
+    heatingAmperage: Attribute.String;
+    cop: Attribute.String;
+    airFlowRate: Attribute.String;
+  };
+}
+
+export interface FridgesFridges extends Schema.Component {
+  collectionName: 'components_fridges_fridges';
+  info: {
+    displayName: 'fridges';
+    description: '';
+  };
+  attributes: {
+    valueL: Attribute.String;
+    freezerCapacity: Attribute.String;
+    coldRoomValue: Attribute.String;
+    dbValue: Attribute.String;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'popular-params.populyarnye-parametry': PopularParamsPopulyarnyeParametry;
+      'wash.wash': WashWash;
+      'params-wrapper.params-wrapper': ParamsWrapperParamsWrapper;
+      'multi-outer.multi-outer': MultiOuterMultiOuter;
+      'fridges.fridges': FridgesFridges;
     }
   }
 }

@@ -1,0 +1,53 @@
+{
+  "collectionName": "components_params_wrapper_params_wrappers",
+  "info": {
+    "displayName": "paramsWrapper",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "multiOuter": {
+      "type": "component",
+      "repeatable": false,
+      "component": "multi-outer.multi-outer"
+    },
+    "fridges": {
+      "type": "component",
+      "repeatable": false,
+      "component": "fridges.fridges"
+    },
+    "wash": {
+      "type": "component",
+      "repeatable": false,
+      "component": "wash.wash"
+    },
+    "previewImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "noise": {
+      "type": "decimal"
+    },
+    "sizes": {
+      "type": "string"
+    }
+  }
+}

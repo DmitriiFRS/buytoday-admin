@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_wash_washes",
+  "info": {
+    "displayName": "wash",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "drying": {
+      "type": "string"
+    },
+    "programNums": {
+      "type": "string"
+    },
+    "rpm": {
+      "type": "string"
+    }
+  }
+}

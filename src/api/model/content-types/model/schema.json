@@ -43,15 +43,6 @@
       "type": "decimal",
       "required": true
     },
-    "filterBtu": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "integer",
-      "required": true
-    },
     "isPromoted": {
       "pluginOptions": {
         "i18n": {
@@ -69,7 +60,7 @@
         }
       },
       "type": "integer",
-      "required": true
+      "required": false
     },
     "coolingKw": {
       "pluginOptions": {
@@ -278,6 +269,16 @@
       },
       "component": "popular-params.populyarnye-parametry",
       "max": 3
+    },
+    "paramsWrapper": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "params-wrapper.params-wrapper"
     }
   }
 }
