@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "dries",
+  "info": {
+    "singularName": "dry",
+    "pluralName": "dries",
+    "displayName": "Сушка",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "slug": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string"
+    },
+    "productTypes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product-type.product-type",
+      "inversedBy": "dries"
+    },
+    "models": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::model.model",
+      "mappedBy": "dry"
+    }
+  }
+}

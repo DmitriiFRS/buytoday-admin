@@ -1,0 +1,45 @@
+{
+  "collectionName": "components_air_purifiers_air_purifiers",
+  "info": {
+    "displayName": "air-purifiers"
+  },
+  "options": {},
+  "attributes": {
+    "voltage": {
+      "type": "string"
+    },
+    "nominalFrequency": {
+      "type": "string"
+    },
+    "nominalPower": {
+      "type": "string"
+    },
+    "anions": {
+      "type": "string"
+    },
+    "ParticleRemovalVol": {
+      "type": "string"
+    },
+    "filterReplacementPeriod": {
+      "type": "string"
+    },
+    "tankCapacity": {
+      "type": "string"
+    },
+    "maximumSprayVolume": {
+      "type": "string"
+    },
+    "cableLength": {
+      "type": "string"
+    },
+    "oscillationDegree": {
+      "type": "string"
+    },
+    "engineSpeed": {
+      "type": "string"
+    },
+    "airVelocity": {
+      "type": "string"
+    }
+  }
+}

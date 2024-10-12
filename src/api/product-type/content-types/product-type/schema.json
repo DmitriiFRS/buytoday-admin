@@ -70,6 +70,36 @@
       "relation": "manyToMany",
       "target": "api::btu-filtry.btu-filtry",
       "mappedBy": "product_types"
+    },
+    "colors": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::color.color",
+      "mappedBy": "productTypes"
+    },
+    "fridgeTypes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::fridge-type.fridge-type",
+      "mappedBy": "productTypes"
+    },
+    "dries": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::dry.dry",
+      "mappedBy": "productTypes"
+    },
+    "performance": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::performance.performance",
+      "mappedBy": "productTypes"
+    },
+    "airPurifierTypes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::air-purifier-type.air-purifier-type",
+      "mappedBy": "productTypes"
     }
   }
 }

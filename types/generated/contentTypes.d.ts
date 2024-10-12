@@ -788,6 +788,70 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiAirPurifierTypeAirPurifierType
+  extends Schema.CollectionType {
+  collectionName: 'air_purifier_types';
+  info: {
+    singularName: 'air-purifier-type';
+    pluralName: 'air-purifier-types';
+    displayName: '\u0422\u0438\u043F\u044B \u043E\u0447\u0438\u0441\u0442\u0438\u0442\u0435\u043B\u044F-\u0443\u0432\u043B\u0430\u0436\u043D\u0438\u0442\u0435\u043B\u044F';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    slug: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    productTypes: Attribute.Relation<
+      'api::air-purifier-type.air-purifier-type',
+      'manyToMany',
+      'api::product-type.product-type'
+    >;
+    models: Attribute.Relation<
+      'api::air-purifier-type.air-purifier-type',
+      'oneToMany',
+      'api::model.model'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::air-purifier-type.air-purifier-type',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::air-purifier-type.air-purifier-type',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::air-purifier-type.air-purifier-type',
+      'oneToMany',
+      'api::air-purifier-type.air-purifier-type'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiBrandBrand extends Schema.CollectionType {
   collectionName: 'brands';
   info: {
@@ -897,6 +961,69 @@ export interface ApiBtuFiltryBtuFiltry extends Schema.CollectionType {
   };
 }
 
+export interface ApiColorColor extends Schema.CollectionType {
+  collectionName: 'colors';
+  info: {
+    singularName: 'color';
+    pluralName: 'colors';
+    displayName: '\u0426\u0432\u0435\u0442\u0430';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    slug: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    productTypes: Attribute.Relation<
+      'api::color.color',
+      'manyToMany',
+      'api::product-type.product-type'
+    >;
+    models: Attribute.Relation<
+      'api::color.color',
+      'oneToMany',
+      'api::model.model'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::color.color',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::color.color',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::color.color',
+      'oneToMany',
+      'api::color.color'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiCompressorTypeCondCompressorTypeCond
   extends Schema.CollectionType {
   collectionName: 'compressor_type_conds';
@@ -999,6 +1126,120 @@ export interface ApiDollarValueDollarValue extends Schema.SingleType {
   };
 }
 
+export interface ApiDryDry extends Schema.CollectionType {
+  collectionName: 'dries';
+  info: {
+    singularName: 'dry';
+    pluralName: 'dries';
+    displayName: '\u0421\u0443\u0448\u043A\u0430';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    slug: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    productTypes: Attribute.Relation<
+      'api::dry.dry',
+      'manyToMany',
+      'api::product-type.product-type'
+    >;
+    models: Attribute.Relation<'api::dry.dry', 'oneToMany', 'api::model.model'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::dry.dry', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::dry.dry', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::dry.dry',
+      'oneToMany',
+      'api::dry.dry'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiFridgeTypeFridgeType extends Schema.CollectionType {
+  collectionName: 'fridge_types';
+  info: {
+    singularName: 'fridge-type';
+    pluralName: 'fridge-types';
+    displayName: '\u0422\u0438\u043F\u044B \u0445\u043E\u043B\u043E\u0434\u0438\u043B\u044C\u043D\u0438\u043A\u0430';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    slug: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    productTypes: Attribute.Relation<
+      'api::fridge-type.fridge-type',
+      'manyToMany',
+      'api::product-type.product-type'
+    >;
+    models: Attribute.Relation<
+      'api::fridge-type.fridge-type',
+      'oneToMany',
+      'api::model.model'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::fridge-type.fridge-type',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::fridge-type.fridge-type',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::fridge-type.fridge-type',
+      'oneToMany',
+      'api::fridge-type.fridge-type'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiModelModel extends Schema.CollectionType {
   collectionName: 'models';
   info: {
@@ -1044,25 +1285,13 @@ export interface ApiModelModel extends Schema.CollectionType {
         };
       }> &
       Attribute.DefaultTo<false>;
-    coolingBtu: Attribute.Integer &
+    heatingBtu: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
         };
       }>;
-    coolingKw: Attribute.Decimal &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    heatingBtu: Attribute.Integer &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    heatingKw: Attribute.Decimal &
+    heatingKw: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
@@ -1216,6 +1445,39 @@ export interface ApiModelModel extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    coolingBtu: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    coolingKw: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    dry: Attribute.Relation<'api::model.model', 'manyToOne', 'api::dry.dry'>;
+    performance: Attribute.Relation<
+      'api::model.model',
+      'manyToOne',
+      'api::performance.performance'
+    >;
+    fridgeType: Attribute.Relation<
+      'api::model.model',
+      'manyToOne',
+      'api::fridge-type.fridge-type'
+    >;
+    colors: Attribute.Relation<
+      'api::model.model',
+      'manyToOne',
+      'api::color.color'
+    >;
+    airPurifiersType: Attribute.Relation<
+      'api::model.model',
+      'manyToOne',
+      'api::air-purifier-type.air-purifier-type'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1237,6 +1499,104 @@ export interface ApiModelModel extends Schema.CollectionType {
       'api::model.model'
     >;
     locale: Attribute.String;
+  };
+}
+
+export interface ApiPerformancePerformance extends Schema.CollectionType {
+  collectionName: 'performances';
+  info: {
+    singularName: 'performance';
+    pluralName: 'performances';
+    displayName: '\u041F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u044C (\u041A\u043E\u0442\u043B\u044B)';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    slug: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    productTypes: Attribute.Relation<
+      'api::performance.performance',
+      'manyToMany',
+      'api::product-type.product-type'
+    >;
+    models: Attribute.Relation<
+      'api::performance.performance',
+      'oneToMany',
+      'api::model.model'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::performance.performance',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::performance.performance',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::performance.performance',
+      'oneToMany',
+      'api::performance.performance'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiPopularGoodPopularGood extends Schema.SingleType {
+  collectionName: 'popular_goods';
+  info: {
+    singularName: 'popular-good';
+    pluralName: 'popular-goods';
+    displayName: '\u041F\u043E\u043F\u0443\u043B\u044F\u0440\u043D\u044B\u0435 \u0442\u043E\u0432\u0430\u0440\u044B';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    productModels: Attribute.Relation<
+      'api::popular-good.popular-good',
+      'oneToMany',
+      'api::model.model'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::popular-good.popular-good',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::popular-good.popular-good',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
   };
 }
 
@@ -1413,6 +1773,31 @@ export interface ApiProductTypeProductType extends Schema.CollectionType {
       'manyToMany',
       'api::btu-filtry.btu-filtry'
     >;
+    colors: Attribute.Relation<
+      'api::product-type.product-type',
+      'manyToMany',
+      'api::color.color'
+    >;
+    fridgeTypes: Attribute.Relation<
+      'api::product-type.product-type',
+      'manyToMany',
+      'api::fridge-type.fridge-type'
+    >;
+    dries: Attribute.Relation<
+      'api::product-type.product-type',
+      'manyToMany',
+      'api::dry.dry'
+    >;
+    performance: Attribute.Relation<
+      'api::product-type.product-type',
+      'manyToMany',
+      'api::performance.performance'
+    >;
+    airPurifierTypes: Attribute.Relation<
+      'api::product-type.product-type',
+      'manyToMany',
+      'api::air-purifier-type.air-purifier-type'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1497,11 +1882,17 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::air-purifier-type.air-purifier-type': ApiAirPurifierTypeAirPurifierType;
       'api::brand.brand': ApiBrandBrand;
       'api::btu-filtry.btu-filtry': ApiBtuFiltryBtuFiltry;
+      'api::color.color': ApiColorColor;
       'api::compressor-type-cond.compressor-type-cond': ApiCompressorTypeCondCompressorTypeCond;
       'api::dollar-value.dollar-value': ApiDollarValueDollarValue;
+      'api::dry.dry': ApiDryDry;
+      'api::fridge-type.fridge-type': ApiFridgeTypeFridgeType;
       'api::model.model': ApiModelModel;
+      'api::performance.performance': ApiPerformancePerformance;
+      'api::popular-good.popular-good': ApiPopularGoodPopularGood;
       'api::product.product': ApiProductProduct;
       'api::product-type.product-type': ApiProductTypeProductType;
       'api::wi-fi.wi-fi': ApiWiFiWiFi;

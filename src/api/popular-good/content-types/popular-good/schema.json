@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "popular_goods",
+  "info": {
+    "singularName": "popular-good",
+    "pluralName": "popular-goods",
+    "displayName": "Популярные товары",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "productModels": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::model.model"
+    }
+  }
+}

@@ -9,31 +9,16 @@
     "powerSupply": {
       "type": "string"
     },
-    "coolingBtu": {
-      "type": "string"
-    },
-    "coolingKw": {
-      "type": "string"
-    },
     "coolingAmperage": {
       "type": "string"
     },
     "err": {
       "type": "string"
     },
-    "heatingBtu": {
-      "type": "string"
-    },
-    "heatingKw": {
-      "type": "string"
-    },
     "heatingAmperage": {
       "type": "string"
     },
     "cop": {
-      "type": "string"
-    },
-    "airFlowRate": {
       "type": "string"
     }
   }

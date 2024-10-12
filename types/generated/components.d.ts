@@ -38,6 +38,16 @@ export interface ParamsWrapperParamsWrapper extends Schema.Component {
     images: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
     noise: Attribute.Decimal;
     sizes: Attribute.String;
+    brands: Attribute.Relation<
+      'params-wrapper.params-wrapper',
+      'oneToOne',
+      'api::brand.brand'
+    >;
+    mainDescription: Attribute.Text;
+    additionalDescription: Attribute.RichText;
+    videoRef: Attribute.String;
+    airPurifiers: Attribute.Component<'air-purifiers.air-purifiers'>;
+    boilers: Attribute.Component<'boilers.boilers'>;
   };
 }
 
@@ -49,15 +59,10 @@ export interface MultiOuterMultiOuter extends Schema.Component {
   };
   attributes: {
     powerSupply: Attribute.String;
-    coolingBtu: Attribute.String;
-    coolingKw: Attribute.String;
     coolingAmperage: Attribute.String;
     err: Attribute.String;
-    heatingBtu: Attribute.String;
-    heatingKw: Attribute.String;
     heatingAmperage: Attribute.String;
     cop: Attribute.String;
-    airFlowRate: Attribute.String;
   };
 }
 
@@ -75,6 +80,51 @@ export interface FridgesFridges extends Schema.Component {
   };
 }
 
+export interface BoilersBoilers extends Schema.Component {
+  collectionName: 'components_boilers_boilers';
+  info: {
+    displayName: 'boilers';
+    description: '';
+  };
+  attributes: {
+    performanceMin: Attribute.String;
+    heatingSource: Attribute.String;
+    gasWorkingPressure: Attribute.String;
+    kpd: Attribute.String;
+    heatingTemperatureRange: Attribute.String;
+    hotWaterTemperatureRange: Attribute.String;
+    workingPressure: Attribute.String;
+    expansionTankVolume: Attribute.String;
+    water25LitersMin: Attribute.String;
+    water30LitersMin: Attribute.String;
+    maxminGasPressure: Attribute.String;
+    oxygenSupply: Attribute.String;
+    gasFlowRateMaxMin: Attribute.String;
+    CombustionChamberType: Attribute.String;
+  };
+}
+
+export interface AirPurifiersAirPurifiers extends Schema.Component {
+  collectionName: 'components_air_purifiers_air_purifiers';
+  info: {
+    displayName: 'air-purifiers';
+  };
+  attributes: {
+    voltage: Attribute.String;
+    nominalFrequency: Attribute.String;
+    nominalPower: Attribute.String;
+    anions: Attribute.String;
+    ParticleRemovalVol: Attribute.String;
+    filterReplacementPeriod: Attribute.String;
+    tankCapacity: Attribute.String;
+    maximumSprayVolume: Attribute.String;
+    cableLength: Attribute.String;
+    oscillationDegree: Attribute.String;
+    engineSpeed: Attribute.String;
+    airVelocity: Attribute.String;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -83,6 +133,8 @@ declare module '@strapi/types' {
       'params-wrapper.params-wrapper': ParamsWrapperParamsWrapper;
       'multi-outer.multi-outer': MultiOuterMultiOuter;
       'fridges.fridges': FridgesFridges;
+      'boilers.boilers': BoilersBoilers;
+      'air-purifiers.air-purifiers': AirPurifiersAirPurifiers;
     }
   }
 }

@@ -53,31 +53,13 @@
       "required": false,
       "default": false
     },
-    "coolingBtu": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "integer",
-      "required": false
-    },
-    "coolingKw": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "decimal"
-    },
     "heatingBtu": {
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
       },
-      "type": "integer",
-      "required": false
+      "type": "string"
     },
     "heatingKw": {
       "pluginOptions": {
@@ -85,8 +67,7 @@
           "localized": false
         }
       },
-      "required": false,
-      "type": "decimal"
+      "type": "string"
     },
     "wifiPrice": {
       "pluginOptions": {
@@ -279,6 +260,52 @@
         }
       },
       "component": "params-wrapper.params-wrapper"
+    },
+    "coolingBtu": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string"
+    },
+    "coolingKw": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string"
+    },
+    "dry": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::dry.dry",
+      "inversedBy": "models"
+    },
+    "performance": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::performance.performance",
+      "inversedBy": "models"
+    },
+    "fridgeType": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::fridge-type.fridge-type",
+      "inversedBy": "models"
+    },
+    "colors": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::color.color",
+      "inversedBy": "models"
+    },
+    "airPurifiersType": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::air-purifier-type.air-purifier-type",
+      "inversedBy": "models"
     }
   }
 }

@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "performances",
+  "info": {
+    "singularName": "performance",
+    "pluralName": "performances",
+    "displayName": "Производительность (Котлы)",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "slug": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string"
+    },
+    "productTypes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product-type.product-type",
+      "inversedBy": "performance"
+    },
+    "models": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::model.model",
+      "mappedBy": "performance"
+    }
+  }
+}

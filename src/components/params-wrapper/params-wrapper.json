@@ -48,6 +48,30 @@
     },
     "sizes": {
       "type": "string"
+    },
+    "brands": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::brand.brand"
+    },
+    "mainDescription": {
+      "type": "text"
+    },
+    "additionalDescription": {
+      "type": "richtext"
+    },
+    "videoRef": {
+      "type": "string"
+    },
+    "airPurifiers": {
+      "type": "component",
+      "repeatable": false,
+      "component": "air-purifiers.air-purifiers"
+    },
+    "boilers": {
+      "type": "component",
+      "repeatable": false,
+      "component": "boilers.boilers"
     }
   }
 }
