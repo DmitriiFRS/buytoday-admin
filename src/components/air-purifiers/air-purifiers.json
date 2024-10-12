@@ -1,7 +1,8 @@
 {
   "collectionName": "components_air_purifiers_air_purifiers",
   "info": {
-    "displayName": "air-purifiers"
+    "displayName": "air-purifiers",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -39,6 +40,9 @@
       "type": "string"
     },
     "airVelocity": {
+      "type": "string"
+    },
+    "formaldehydeVol": {
       "type": "string"
     }
   }

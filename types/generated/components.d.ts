@@ -13,17 +13,6 @@ export interface WashWash extends Schema.Component {
   };
 }
 
-export interface PopularParamsPopulyarnyeParametry extends Schema.Component {
-  collectionName: 'components_popular_params_populyarnye_parametry';
-  info: {
-    displayName: '\u041F\u043E\u043F\u0443\u043B\u044F\u0440\u043D\u044B\u0435 \u043F\u0430\u0440\u0430\u043C\u0435\u0442\u0440\u044B';
-  };
-  attributes: {
-    name: Attribute.String;
-    value: Attribute.String;
-  };
-}
-
 export interface ParamsWrapperParamsWrapper extends Schema.Component {
   collectionName: 'components_params_wrapper_params_wrappers';
   info: {
@@ -63,6 +52,17 @@ export interface MultiOuterMultiOuter extends Schema.Component {
     err: Attribute.String;
     heatingAmperage: Attribute.String;
     cop: Attribute.String;
+  };
+}
+
+export interface PopularParamsPopulyarnyeParametry extends Schema.Component {
+  collectionName: 'components_popular_params_populyarnye_parametry';
+  info: {
+    displayName: '\u041F\u043E\u043F\u0443\u043B\u044F\u0440\u043D\u044B\u0435 \u043F\u0430\u0440\u0430\u043C\u0435\u0442\u0440\u044B';
+  };
+  attributes: {
+    name: Attribute.String;
+    value: Attribute.String;
   };
 }
 
@@ -108,6 +108,7 @@ export interface AirPurifiersAirPurifiers extends Schema.Component {
   collectionName: 'components_air_purifiers_air_purifiers';
   info: {
     displayName: 'air-purifiers';
+    description: '';
   };
   attributes: {
     voltage: Attribute.String;
@@ -122,6 +123,7 @@ export interface AirPurifiersAirPurifiers extends Schema.Component {
     oscillationDegree: Attribute.String;
     engineSpeed: Attribute.String;
     airVelocity: Attribute.String;
+    formaldehydeVol: Attribute.String;
   };
 }
 
@@ -129,9 +131,9 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'wash.wash': WashWash;
-      'popular-params.populyarnye-parametry': PopularParamsPopulyarnyeParametry;
       'params-wrapper.params-wrapper': ParamsWrapperParamsWrapper;
       'multi-outer.multi-outer': MultiOuterMultiOuter;
+      'popular-params.populyarnye-parametry': PopularParamsPopulyarnyeParametry;
       'fridges.fridges': FridgesFridges;
       'boilers.boilers': BoilersBoilers;
       'air-purifiers.air-purifiers': AirPurifiersAirPurifiers;
