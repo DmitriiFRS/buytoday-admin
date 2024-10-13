@@ -1,5 +1,19 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface WashWash extends Schema.Component {
+  collectionName: 'components_wash_washes';
+  info: {
+    displayName: 'wash';
+    description: '';
+  };
+  attributes: {
+    drying: Attribute.String;
+    programNums: Attribute.String;
+    rpm: Attribute.String;
+    capacity: Attribute.String;
+  };
+}
+
 export interface PopularParamsPopulyarnyeParametry extends Schema.Component {
   collectionName: 'components_popular_params_populyarnye_parametry';
   info: {
@@ -35,6 +49,8 @@ export interface ParamsWrapperParamsWrapper extends Schema.Component {
     airPurifiers: Attribute.Component<'air-purifiers.air-purifiers'>;
     boilers: Attribute.Component<'boilers.boilers'>;
     noise: Attribute.String;
+    weight: Attribute.String;
+    nominalVoltage: Attribute.String;
   };
 }
 
@@ -53,19 +69,6 @@ export interface MultiOuterMultiOuter extends Schema.Component {
   };
 }
 
-export interface WashWash extends Schema.Component {
-  collectionName: 'components_wash_washes';
-  info: {
-    displayName: 'wash';
-    description: '';
-  };
-  attributes: {
-    drying: Attribute.String;
-    programNums: Attribute.String;
-    rpm: Attribute.String;
-  };
-}
-
 export interface FridgesFridges extends Schema.Component {
   collectionName: 'components_fridges_fridges';
   info: {
@@ -76,7 +79,6 @@ export interface FridgesFridges extends Schema.Component {
     valueL: Attribute.String;
     freezerCapacity: Attribute.String;
     coldRoomValue: Attribute.String;
-    dbValue: Attribute.String;
   };
 }
 
@@ -130,10 +132,10 @@ export interface AirPurifiersAirPurifiers extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'wash.wash': WashWash;
       'popular-params.populyarnye-parametry': PopularParamsPopulyarnyeParametry;
       'params-wrapper.params-wrapper': ParamsWrapperParamsWrapper;
       'multi-outer.multi-outer': MultiOuterMultiOuter;
-      'wash.wash': WashWash;
       'fridges.fridges': FridgesFridges;
       'boilers.boilers': BoilersBoilers;
       'air-purifiers.air-purifiers': AirPurifiersAirPurifiers;

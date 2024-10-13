@@ -14,9 +14,6 @@
     },
     "coldRoomValue": {
       "type": "string"
-    },
-    "dbValue": {
-      "type": "string"
     }
   }
 }

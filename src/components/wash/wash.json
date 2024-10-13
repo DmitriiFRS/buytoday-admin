@@ -14,6 +14,9 @@
     },
     "rpm": {
       "type": "string"
+    },
+    "capacity": {
+      "type": "string"
     }
   }
 }

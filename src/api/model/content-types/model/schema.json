@@ -4,7 +4,7 @@
   "info": {
     "singularName": "model",
     "pluralName": "models",
-    "displayName": "Модель (Продукт)",
+    "displayName": "Все продукты / Модели",
     "description": ""
   },
   "options": {
@@ -28,11 +28,12 @@
     "slug": {
       "pluginOptions": {
         "i18n": {
-          "localized": false
+          "localized": true
         }
       },
       "type": "string",
-      "required": true
+      "required": true,
+      "unique": true
     },
     "price": {
       "pluginOptions": {
@@ -303,6 +304,12 @@
         }
       },
       "type": "string"
+    },
+    "noFrost": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::no-frost.no-frost",
+      "inversedBy": "models"
     }
   }
 }

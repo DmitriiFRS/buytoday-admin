@@ -72,6 +72,12 @@
     },
     "noise": {
       "type": "string"
+    },
+    "weight": {
+      "type": "string"
+    },
+    "nominalVoltage": {
+      "type": "string"
     }
   }
 }

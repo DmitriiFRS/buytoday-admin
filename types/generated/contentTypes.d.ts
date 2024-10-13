@@ -1245,7 +1245,7 @@ export interface ApiModelModel extends Schema.CollectionType {
   info: {
     singularName: 'model';
     pluralName: 'models';
-    displayName: '\u041C\u043E\u0434\u0435\u043B\u044C (\u041F\u0440\u043E\u0434\u0443\u043A\u0442)';
+    displayName: '\u0412\u0441\u0435 \u043F\u0440\u043E\u0434\u0443\u043A\u0442\u044B / \u041C\u043E\u0434\u0435\u043B\u0438';
     description: '';
   };
   options: {
@@ -1266,9 +1266,10 @@ export interface ApiModelModel extends Schema.CollectionType {
       }>;
     slug: Attribute.String &
       Attribute.Required &
+      Attribute.Unique &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: false;
+          localized: true;
         };
       }>;
     price: Attribute.Decimal &
@@ -1478,6 +1479,11 @@ export interface ApiModelModel extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    noFrost: Attribute.Relation<
+      'api::model.model',
+      'manyToOne',
+      'api::no-frost.no-frost'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1497,6 +1503,71 @@ export interface ApiModelModel extends Schema.CollectionType {
       'api::model.model',
       'oneToMany',
       'api::model.model'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiNoFrostNoFrost extends Schema.CollectionType {
+  collectionName: 'no_frosts';
+  info: {
+    singularName: 'no-frost';
+    pluralName: 'no-frosts';
+    displayName: 'No-Frost';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    slug: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    productTypes: Attribute.Relation<
+      'api::no-frost.no-frost',
+      'manyToMany',
+      'api::product-type.product-type'
+    >;
+    models: Attribute.Relation<
+      'api::no-frost.no-frost',
+      'oneToMany',
+      'api::model.model'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::no-frost.no-frost',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::no-frost.no-frost',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::no-frost.no-frost',
+      'oneToMany',
+      'api::no-frost.no-frost'
     >;
     locale: Attribute.String;
   };
@@ -1798,6 +1869,18 @@ export interface ApiProductTypeProductType extends Schema.CollectionType {
       'manyToMany',
       'api::air-purifier-type.air-purifier-type'
     >;
+    noFrost: Attribute.Relation<
+      'api::product-type.product-type',
+      'manyToMany',
+      'api::no-frost.no-frost'
+    >;
+    titleSingular: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1891,6 +1974,7 @@ declare module '@strapi/types' {
       'api::dry.dry': ApiDryDry;
       'api::fridge-type.fridge-type': ApiFridgeTypeFridgeType;
       'api::model.model': ApiModelModel;
+      'api::no-frost.no-frost': ApiNoFrostNoFrost;
       'api::performance.performance': ApiPerformancePerformance;
       'api::popular-good.popular-good': ApiPopularGoodPopularGood;
       'api::product.product': ApiProductProduct;
