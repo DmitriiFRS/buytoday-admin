@@ -43,9 +43,6 @@
         "audios"
       ]
     },
-    "noise": {
-      "type": "decimal"
-    },
     "sizes": {
       "type": "string"
     },
@@ -72,6 +69,9 @@
       "type": "component",
       "repeatable": false,
       "component": "boilers.boilers"
+    },
+    "noise": {
+      "type": "string"
     }
   }
 }
