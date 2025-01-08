@@ -45,12 +45,6 @@
       "relation": "manyToMany",
       "target": "api::product-type.product-type",
       "inversedBy": "compressor_types"
-    },
-    "models": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::model.model",
-      "mappedBy": "compressorType"
     }
   }
 }

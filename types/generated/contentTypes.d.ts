@@ -932,11 +932,6 @@ export interface ApiBtuFiltryBtuFiltry extends Schema.CollectionType {
       'manyToMany',
       'api::product-type.product-type'
     >;
-    models: Attribute.Relation<
-      'api::btu-filtry.btu-filtry',
-      'oneToMany',
-      'api::model.model'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1065,11 +1060,6 @@ export interface ApiCompressorTypeCondCompressorTypeCond
       'api::compressor-type-cond.compressor-type-cond',
       'manyToMany',
       'api::product-type.product-type'
-    >;
-    models: Attribute.Relation<
-      'api::compressor-type-cond.compressor-type-cond',
-      'oneToMany',
-      'api::model.model'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1286,42 +1276,6 @@ export interface ApiModelModel extends Schema.CollectionType {
         };
       }> &
       Attribute.DefaultTo<false>;
-    heatingBtu: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    heatingKw: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    wifiPrice: Attribute.Decimal &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    freon: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    innerBlockSize: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    outerBlockSize: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
     isInStock: Attribute.Boolean &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -1340,36 +1294,16 @@ export interface ApiModelModel extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    product: Attribute.Relation<
-      'api::model.model',
-      'manyToOne',
-      'api::product.product'
-    >;
     bonus: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    wi_fi: Attribute.Relation<
-      'api::model.model',
-      'manyToOne',
-      'api::wi-fi.wi-fi'
-    >;
     productType: Attribute.Relation<
       'api::model.model',
       'manyToOne',
       'api::product-type.product-type'
-    >;
-    btu_filters: Attribute.Relation<
-      'api::model.model',
-      'manyToOne',
-      'api::btu-filtry.btu-filtry'
-    >;
-    compressorType: Attribute.Relation<
-      'api::model.model',
-      'manyToOne',
-      'api::compressor-type-cond.compressor-type-cond'
     >;
     popularParam: Attribute.Component<
       'popular-params.populyarnye-parametry',
@@ -1390,18 +1324,6 @@ export interface ApiModelModel extends Schema.CollectionType {
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
-        };
-      }>;
-    coolingBtu: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    coolingKw: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
         };
       }>;
     dry: Attribute.Relation<'api::model.model', 'manyToOne', 'api::dry.dry'>;
@@ -1425,65 +1347,17 @@ export interface ApiModelModel extends Schema.CollectionType {
       'manyToOne',
       'api::air-purifier-type.air-purifier-type'
     >;
-    m2Area: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    m3Area: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    powerConsumption: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    airConsumption: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    innerBlockNoise: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    outerBlockNoise: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    innerBlockWeight: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    outerBlockWeight: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    routeLength: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     noFrost: Attribute.Relation<
       'api::model.model',
       'manyToOne',
       'api::no-frost.no-frost'
     >;
+    wifiPrice: Attribute.Decimal &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1721,11 +1595,6 @@ export interface ApiProductProduct extends Schema.CollectionType {
           localized: false;
         };
       }>;
-    models: Attribute.Relation<
-      'api::product.product',
-      'oneToMany',
-      'api::model.model'
-    >;
     images: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true> &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -1917,11 +1786,6 @@ export interface ApiWiFiWiFi extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    models: Attribute.Relation<
-      'api::wi-fi.wi-fi',
-      'oneToMany',
-      'api::model.model'
-    >;
     productTypes: Attribute.Relation<
       'api::wi-fi.wi-fi',
       'manyToMany',

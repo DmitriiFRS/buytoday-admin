@@ -40,12 +40,6 @@
       "relation": "manyToMany",
       "target": "api::product-type.product-type",
       "inversedBy": "btuFilters"
-    },
-    "models": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::model.model",
-      "mappedBy": "btu_filters"
     }
   }
 }

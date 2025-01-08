@@ -43,9 +43,6 @@
         "audios"
       ]
     },
-    "sizes": {
-      "type": "string"
-    },
     "brands": {
       "type": "relation",
       "relation": "oneToOne",
@@ -70,14 +67,10 @@
       "repeatable": false,
       "component": "boilers.boilers"
     },
-    "noise": {
-      "type": "string"
-    },
-    "weight": {
-      "type": "string"
-    },
-    "nominalVoltage": {
-      "type": "string"
+    "aircond": {
+      "type": "component",
+      "repeatable": false,
+      "component": "aircond.aircond"
     }
   }
 }

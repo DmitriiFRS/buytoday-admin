@@ -54,54 +54,6 @@
       "required": false,
       "default": false
     },
-    "heatingBtu": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "string"
-    },
-    "heatingKw": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "string"
-    },
-    "wifiPrice": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "decimal"
-    },
-    "freon": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "string"
-    },
-    "innerBlockSize": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "string"
-    },
-    "outerBlockSize": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "string"
-    },
     "isInStock": {
       "pluginOptions": {
         "i18n": {
@@ -127,12 +79,6 @@
       "type": "text",
       "required": false
     },
-    "product": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::product.product",
-      "inversedBy": "models"
-    },
     "bonus": {
       "pluginOptions": {
         "i18n": {
@@ -141,28 +87,10 @@
       },
       "type": "string"
     },
-    "wi_fi": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::wi-fi.wi-fi",
-      "inversedBy": "models"
-    },
     "productType": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::product-type.product-type",
-      "inversedBy": "models"
-    },
-    "btu_filters": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::btu-filtry.btu-filtry",
-      "inversedBy": "models"
-    },
-    "compressorType": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::compressor-type-cond.compressor-type-cond",
       "inversedBy": "models"
     },
     "popularParam": {
@@ -186,22 +114,6 @@
         }
       },
       "component": "params-wrapper.params-wrapper"
-    },
-    "coolingBtu": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "string"
-    },
-    "coolingKw": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "string"
     },
     "dry": {
       "type": "relation",
@@ -233,83 +145,19 @@
       "target": "api::air-purifier-type.air-purifier-type",
       "inversedBy": "models"
     },
-    "m2Area": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "string"
-    },
-    "m3Area": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "string"
-    },
-    "powerConsumption": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "string"
-    },
-    "airConsumption": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "string"
-    },
-    "innerBlockNoise": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "string"
-    },
-    "outerBlockNoise": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "string"
-    },
-    "innerBlockWeight": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "string"
-    },
-    "outerBlockWeight": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string"
-    },
-    "routeLength": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string"
-    },
     "noFrost": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::no-frost.no-frost",
       "inversedBy": "models"
+    },
+    "wifiPrice": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "decimal"
     }
   }
 }

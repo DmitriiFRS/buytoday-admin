@@ -12,12 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "models": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::model.model",
-      "mappedBy": "wi_fi"
-    },
     "productTypes": {
       "type": "relation",
       "relation": "manyToMany",

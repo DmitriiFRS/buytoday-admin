@@ -37,7 +37,6 @@ export interface ParamsWrapperParamsWrapper extends Schema.Component {
     wash: Attribute.Component<'wash.wash'>;
     previewImage: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     images: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
-    sizes: Attribute.String;
     brands: Attribute.Relation<
       'params-wrapper.params-wrapper',
       'oneToOne',
@@ -48,9 +47,7 @@ export interface ParamsWrapperParamsWrapper extends Schema.Component {
     videoRef: Attribute.String;
     airPurifiers: Attribute.Component<'air-purifiers.air-purifiers'>;
     boilers: Attribute.Component<'boilers.boilers'>;
-    noise: Attribute.String;
-    weight: Attribute.String;
-    nominalVoltage: Attribute.String;
+    aircond: Attribute.Component<'aircond.aircond'>;
   };
 }
 
@@ -106,6 +103,56 @@ export interface BoilersBoilers extends Schema.Component {
   };
 }
 
+export interface AircondAircond extends Schema.Component {
+  collectionName: 'components_aircond_airconds';
+  info: {
+    displayName: 'aircond';
+    description: '';
+  };
+  attributes: {
+    heatingBtu: Attribute.String;
+    heatingKw: Attribute.String;
+    coolingBtu: Attribute.String;
+    coolingKw: Attribute.String;
+    m2Area: Attribute.String;
+    m3Area: Attribute.String;
+    powerConsumption: Attribute.String;
+    airComsumption: Attribute.String;
+    innerBlockNoise: Attribute.String;
+    outerBLockNoise: Attribute.String;
+    innerBlockWeight: Attribute.String;
+    outerBlockWeight: Attribute.String;
+    freon: Attribute.String;
+    innerBlockSize: Attribute.String;
+    outerBlockSize: Attribute.String;
+    wi_fi: Attribute.Relation<
+      'aircond.aircond',
+      'oneToOne',
+      'api::wi-fi.wi-fi'
+    >;
+    btu_filters: Attribute.Relation<
+      'aircond.aircond',
+      'oneToOne',
+      'api::btu-filtry.btu-filtry'
+    >;
+    compressorType: Attribute.Relation<
+      'aircond.aircond',
+      'oneToOne',
+      'api::compressor-type-cond.compressor-type-cond'
+    >;
+    product: Attribute.Relation<
+      'aircond.aircond',
+      'oneToOne',
+      'api::product.product'
+    >;
+    routeLength: Attribute.String;
+    pipes: Attribute.String;
+    externalPanel: Attribute.String;
+    serving: Attribute.String;
+    recirculation: Attribute.String;
+  };
+}
+
 export interface AirPurifiersAirPurifiers extends Schema.Component {
   collectionName: 'components_air_purifiers_air_purifiers';
   info: {
@@ -138,6 +185,7 @@ declare module '@strapi/types' {
       'multi-outer.multi-outer': MultiOuterMultiOuter;
       'fridges.fridges': FridgesFridges;
       'boilers.boilers': BoilersBoilers;
+      'aircond.aircond': AircondAircond;
       'air-purifiers.air-purifiers': AirPurifiersAirPurifiers;
     }
   }

@@ -66,12 +66,6 @@
       },
       "type": "string"
     },
-    "models": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::model.model",
-      "mappedBy": "product"
-    },
     "images": {
       "type": "media",
       "multiple": true,

@@ -1,0 +1,90 @@
+{
+  "collectionName": "components_aircond_airconds",
+  "info": {
+    "displayName": "aircond",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "heatingBtu": {
+      "type": "string"
+    },
+    "heatingKw": {
+      "type": "string"
+    },
+    "coolingBtu": {
+      "type": "string"
+    },
+    "coolingKw": {
+      "type": "string"
+    },
+    "m2Area": {
+      "type": "string"
+    },
+    "m3Area": {
+      "type": "string"
+    },
+    "powerConsumption": {
+      "type": "string"
+    },
+    "airComsumption": {
+      "type": "string"
+    },
+    "innerBlockNoise": {
+      "type": "string"
+    },
+    "outerBLockNoise": {
+      "type": "string"
+    },
+    "innerBlockWeight": {
+      "type": "string"
+    },
+    "outerBlockWeight": {
+      "type": "string"
+    },
+    "freon": {
+      "type": "string"
+    },
+    "innerBlockSize": {
+      "type": "string"
+    },
+    "outerBlockSize": {
+      "type": "string"
+    },
+    "wi_fi": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::wi-fi.wi-fi"
+    },
+    "btu_filters": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::btu-filtry.btu-filtry"
+    },
+    "compressorType": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::compressor-type-cond.compressor-type-cond"
+    },
+    "product": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::product.product"
+    },
+    "routeLength": {
+      "type": "string"
+    },
+    "pipes": {
+      "type": "string"
+    },
+    "externalPanel": {
+      "type": "string"
+    },
+    "serving": {
+      "type": "string"
+    },
+    "recirculation": {
+      "type": "string"
+    }
+  }
+}
