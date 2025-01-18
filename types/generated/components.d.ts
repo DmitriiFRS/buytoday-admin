@@ -14,6 +14,19 @@ export interface WashWash extends Schema.Component {
   };
 }
 
+export interface RecupsRecups extends Schema.Component {
+  collectionName: 'components_recups_recups';
+  info: {
+    displayName: 'recups';
+  };
+  attributes: {
+    power: Attribute.String;
+    noise: Attribute.String;
+    panelSize: Attribute.String;
+    airVolume: Attribute.String;
+  };
+}
+
 export interface PopularParamsPopulyarnyeParametry extends Schema.Component {
   collectionName: 'components_popular_params_populyarnye_parametry';
   info: {
@@ -48,6 +61,9 @@ export interface ParamsWrapperParamsWrapper extends Schema.Component {
     airPurifiers: Attribute.Component<'air-purifiers.air-purifiers'>;
     boilers: Attribute.Component<'boilers.boilers'>;
     aircond: Attribute.Component<'aircond.aircond'>;
+    recups: Attribute.Component<'recups.recups'>;
+    dehumids: Attribute.Component<'dehumids.dehumids'>;
+    coolers: Attribute.Component<'coolers.coolers'>;
   };
 }
 
@@ -76,6 +92,45 @@ export interface FridgesFridges extends Schema.Component {
     valueL: Attribute.String;
     freezerCapacity: Attribute.String;
     coldRoomValue: Attribute.String;
+    noise: Attribute.String;
+  };
+}
+
+export interface DehumidsDehumids extends Schema.Component {
+  collectionName: 'components_dehumids_dehumids';
+  info: {
+    displayName: 'dehumids';
+  };
+  attributes: {
+    powerSupply: Attribute.String;
+    powerConsumption: Attribute.String;
+    capacity: Attribute.String;
+    circAirFlow: Attribute.String;
+    coolant: Attribute.String;
+    size: Attribute.String;
+    weight: Attribute.String;
+    m2: Attribute.String;
+    performance: Attribute.String;
+    drenage: Attribute.String;
+    workingTemp: Attribute.String;
+    noise: Attribute.String;
+  };
+}
+
+export interface CoolersCoolers extends Schema.Component {
+  collectionName: 'components_coolers_coolers';
+  info: {
+    displayName: 'coolers';
+  };
+  attributes: {
+    coilMaterial: Attribute.String;
+    hotWaterTemp: Attribute.String;
+    chilledWaterTemp: Attribute.String;
+    hotWaterSize: Attribute.String;
+    chilledWaterSize: Attribute.String;
+    thermalCap: Attribute.String;
+    cooling: Attribute.String;
+    size: Attribute.String;
   };
 }
 
@@ -100,6 +155,9 @@ export interface BoilersBoilers extends Schema.Component {
     oxygenSupply: Attribute.String;
     gasFlowRateMaxMin: Attribute.String;
     CombustionChamberType: Attribute.String;
+    nominalPower: Attribute.String;
+    maxPerformance: Attribute.String;
+    size: Attribute.String;
   };
 }
 
@@ -150,6 +208,10 @@ export interface AircondAircond extends Schema.Component {
     externalPanel: Attribute.String;
     serving: Attribute.String;
     recirculation: Attribute.String;
+    sizeCurtains: Attribute.String;
+    powerSupply: Attribute.String;
+    tempOutput: Attribute.String;
+    fullSize: Attribute.String;
   };
 }
 
@@ -173,6 +235,9 @@ export interface AirPurifiersAirPurifiers extends Schema.Component {
     engineSpeed: Attribute.String;
     airVelocity: Attribute.String;
     formaldehydeVol: Attribute.String;
+    noise: Attribute.String;
+    weight: Attribute.String;
+    m2: Attribute.String;
   };
 }
 
@@ -180,10 +245,13 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'wash.wash': WashWash;
+      'recups.recups': RecupsRecups;
       'popular-params.populyarnye-parametry': PopularParamsPopulyarnyeParametry;
       'params-wrapper.params-wrapper': ParamsWrapperParamsWrapper;
       'multi-outer.multi-outer': MultiOuterMultiOuter;
       'fridges.fridges': FridgesFridges;
+      'dehumids.dehumids': DehumidsDehumids;
+      'coolers.coolers': CoolersCoolers;
       'boilers.boilers': BoilersBoilers;
       'aircond.aircond': AircondAircond;
       'air-purifiers.air-purifiers': AirPurifiersAirPurifiers;

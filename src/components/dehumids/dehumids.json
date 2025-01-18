@@ -1,0 +1,45 @@
+{
+  "collectionName": "components_dehumids_dehumids",
+  "info": {
+    "displayName": "dehumids"
+  },
+  "options": {},
+  "attributes": {
+    "powerSupply": {
+      "type": "string"
+    },
+    "powerConsumption": {
+      "type": "string"
+    },
+    "capacity": {
+      "type": "string"
+    },
+    "circAirFlow": {
+      "type": "string"
+    },
+    "coolant": {
+      "type": "string"
+    },
+    "size": {
+      "type": "string"
+    },
+    "weight": {
+      "type": "string"
+    },
+    "m2": {
+      "type": "string"
+    },
+    "performance": {
+      "type": "string"
+    },
+    "drenage": {
+      "type": "string"
+    },
+    "workingTemp": {
+      "type": "string"
+    },
+    "noise": {
+      "type": "string"
+    }
+  }
+}

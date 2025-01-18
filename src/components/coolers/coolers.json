@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_coolers_coolers",
+  "info": {
+    "displayName": "coolers"
+  },
+  "options": {},
+  "attributes": {
+    "coilMaterial": {
+      "type": "string"
+    },
+    "hotWaterTemp": {
+      "type": "string"
+    },
+    "chilledWaterTemp": {
+      "type": "string"
+    },
+    "hotWaterSize": {
+      "type": "string"
+    },
+    "chilledWaterSize": {
+      "type": "string"
+    },
+    "thermalCap": {
+      "type": "string"
+    },
+    "cooling": {
+      "type": "string"
+    },
+    "size": {
+      "type": "string"
+    }
+  }
+}

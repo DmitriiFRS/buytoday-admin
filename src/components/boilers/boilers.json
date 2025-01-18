@@ -47,6 +47,15 @@
     },
     "CombustionChamberType": {
       "type": "string"
+    },
+    "nominalPower": {
+      "type": "string"
+    },
+    "maxPerformance": {
+      "type": "string"
+    },
+    "size": {
+      "type": "string"
     }
   }
 }

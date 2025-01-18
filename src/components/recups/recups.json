@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_recups_recups",
+  "info": {
+    "displayName": "recups"
+  },
+  "options": {},
+  "attributes": {
+    "power": {
+      "type": "string"
+    },
+    "noise": {
+      "type": "string"
+    },
+    "panelSize": {
+      "type": "string"
+    },
+    "airVolume": {
+      "type": "string"
+    }
+  }
+}

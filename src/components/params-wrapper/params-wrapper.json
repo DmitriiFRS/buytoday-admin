@@ -71,6 +71,24 @@
       "type": "component",
       "repeatable": false,
       "component": "aircond.aircond"
+    },
+    "recups": {
+      "displayName": "recups",
+      "type": "component",
+      "repeatable": false,
+      "component": "recups.recups"
+    },
+    "dehumids": {
+      "displayName": "dehumids",
+      "type": "component",
+      "repeatable": false,
+      "component": "dehumids.dehumids"
+    },
+    "coolers": {
+      "displayName": "coolers",
+      "type": "component",
+      "repeatable": false,
+      "component": "coolers.coolers"
     }
   }
 }

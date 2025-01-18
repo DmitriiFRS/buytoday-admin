@@ -44,6 +44,15 @@
     },
     "formaldehydeVol": {
       "type": "string"
+    },
+    "noise": {
+      "type": "string"
+    },
+    "weight": {
+      "type": "string"
+    },
+    "m2": {
+      "type": "string"
     }
   }
 }

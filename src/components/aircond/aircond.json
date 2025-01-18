@@ -85,6 +85,18 @@
     },
     "recirculation": {
       "type": "string"
+    },
+    "sizeCurtains": {
+      "type": "string"
+    },
+    "powerSupply": {
+      "type": "string"
+    },
+    "tempOutput": {
+      "type": "string"
+    },
+    "fullSize": {
+      "type": "string"
     }
   }
 }
