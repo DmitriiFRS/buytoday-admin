@@ -1358,6 +1358,11 @@ export interface ApiModelModel extends Schema.CollectionType {
           localized: false;
         };
       }>;
+    product: Attribute.Relation<
+      'api::model.model',
+      'manyToOne',
+      'api::product.product'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1628,6 +1633,11 @@ export interface ApiProductProduct extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    models: Attribute.Relation<
+      'api::product.product',
+      'oneToMany',
+      'api::model.model'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

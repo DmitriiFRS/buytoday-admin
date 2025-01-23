@@ -158,6 +158,12 @@
         }
       },
       "type": "decimal"
+    },
+    "product": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::product.product",
+      "inversedBy": "models"
     }
   }
 }
