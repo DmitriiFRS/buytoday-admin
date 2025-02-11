@@ -1784,6 +1784,72 @@ export interface ApiProductTypeProductType extends Schema.CollectionType {
   };
 }
 
+export interface ApiPromotionPromotion extends Schema.CollectionType {
+  collectionName: 'promotions';
+  info: {
+    singularName: 'promotion';
+    pluralName: 'promotions';
+    displayName: '\u0410\u043A\u0446\u0438\u0438';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    description: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    slug: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::promotion.promotion',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::promotion.promotion',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::promotion.promotion',
+      'oneToMany',
+      'api::promotion.promotion'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiWiFiWiFi extends Schema.CollectionType {
   collectionName: 'wi_fis';
   info: {
@@ -1853,6 +1919,7 @@ declare module '@strapi/types' {
       'api::popular-good.popular-good': ApiPopularGoodPopularGood;
       'api::product.product': ApiProductProduct;
       'api::product-type.product-type': ApiProductTypeProductType;
+      'api::promotion.promotion': ApiPromotionPromotion;
       'api::wi-fi.wi-fi': ApiWiFiWiFi;
     }
   }
